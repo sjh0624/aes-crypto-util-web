@@ -22,16 +22,15 @@ function replaceSearchParam(key: string, value: string | null) {
 
 export default function AesDecryptLiveEditor({className}: { className: string }) {
 
-
-    const router = useRouter();
     const searchParams = useSearchParams();
     const defaultSecret = searchParams.get('secret') ?? '';
+    const defaultPrettyJsonEnabled = searchParams.get('prettyJson') === 'true';
 
     // TextArea와 값이 연동되는 useState 작성
     const [input, setInput] = useState<string>('')
     const [secret, setSecret] = useState<string>(defaultSecret)
 
-    const [prettyJsonEnabled, setPrettyJsonEnabled] = useState<boolean>(false);
+    const [prettyJsonEnabled, setPrettyJsonEnabled] = useState<boolean>(defaultPrettyJsonEnabled);
 
     const [message, setMessage] = useState<string>('');
 
@@ -42,7 +41,7 @@ export default function AesDecryptLiveEditor({className}: { className: string })
 
     const handlePrettyJsonEnabledChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPrettyJsonEnabled(e.target.checked);
-        replaceSearchParam('prettyJsonEnabled', e.target.checked ? 'true' : null)
+        replaceSearchParam('prettyJson', e.target.checked ? 'true' : null)
     }
 
     const output = useMemo(() => {
