@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .secret {
+    width: 300px;
+    overflow: auto;
+    padding: 10px;
+  }
+
+  // input 클래스는 textarea element에 적용할 것임
+  // 화면의 중앙 상단을 넓게 차지
+  .input {
+    height: 30vh;
+    padding: 10px;
+  }
+
+  // output 클래스는 textarea element에 적용할 것임
+  // 화면의 중앙 하단을 넓게 차지
+  .output {
+    height: 30vh;
+    padding: 10px;
+
+    &:global(.error) {
+      outline: 1px solid red;
+    }
+  }
+
+  .copy {
+    padding: 4px;
+
+  }
+
+  .prettyJsonEnabled {
+    margin-left: 8px;
+  }
+
+  .message {
+    color: green;
+  }
+
+
+}
