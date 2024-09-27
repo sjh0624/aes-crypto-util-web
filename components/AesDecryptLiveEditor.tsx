@@ -46,7 +46,7 @@ export default function AesDecryptLiveEditor({className}: { className: string })
 
     const output = useMemo(() => {
         if(!input || input.trim().length === 0) {
-            return {type: 'error', value: '상단에 암호문을 입력하세요.'} as const;
+            return {type: 'error', value: '상단에 입력하세요.'} as const;
         }
         try {
             const value = (() => {
@@ -76,7 +76,7 @@ export default function AesDecryptLiveEditor({className}: { className: string })
                 className={s.input}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="암호화된 JSON을 여기에 입력하세요."
+                placeholder="여기에 입력하면 자동으로 복호화 됩니다."
                 autoFocus
             />
             <textarea
