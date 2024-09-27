@@ -12,14 +12,14 @@
   // input 클래스는 textarea element에 적용할 것임
   // 화면의 중앙 상단을 넓게 차지
   .input {
-    height: 30vh;
+    height: 100px;
     padding: 10px;
   }
 
   // output 클래스는 textarea element에 적용할 것임
   // 화면의 중앙 하단을 넓게 차지
   .output {
-    height: 30vh;
+    height: calc(95vh - 200px - 3rem - 50px - 90px);
     padding: 10px;
 
     &:global(.error) {
@@ -37,7 +37,9 @@
   }
 
   .message {
-    color: green;
+    margin-top: 8px;
+    color: #428F33;
+    font-weight: 500;
   }
 
 

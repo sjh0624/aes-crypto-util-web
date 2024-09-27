@@ -73,13 +73,14 @@ export default function AesDecryptLiveEditor({className}: { className: string })
                 className={s.input}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Input text here"
+                placeholder="암호화된 JSON을 여기에 입력하세요."
+                autoFocus
             />
             <textarea
                 className={s.output + " " + output.type}
                 value={output.value}
                 readOnly
-                placeholder="Output text here"
+                placeholder="평문으로 복호화된 JSON이 여기에 출력됩니다."
             />
             <label className={s.prettyJsonEnabled}>
                 <input
@@ -87,7 +88,7 @@ export default function AesDecryptLiveEditor({className}: { className: string })
                     checked={prettyJsonEnabled}
                     onChange={handlePrettyJsonEnabledChange}
                 />
-                pretty json
+                JSON 포맷터 적용
             </label>
             <div>
                 <button className={s.copy} onClick={() => {
@@ -97,7 +98,7 @@ export default function AesDecryptLiveEditor({className}: { className: string })
                             setMessage('클립보드에 복사되었습니다.');
                             setTimeout(() => setMessage(''), 3000);
                         });
-                }}>copy
+                }}>클립보드에 복사
                 </button>
 
                 {/*5초 정도 나타나는 동적 메시지 표시*/}
