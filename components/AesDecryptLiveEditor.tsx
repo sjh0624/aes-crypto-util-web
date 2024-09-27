@@ -45,6 +45,9 @@ export default function AesDecryptLiveEditor({className}: { className: string })
     }
 
     const output = useMemo(() => {
+        if(!input || input.trim().length === 0) {
+            return {type: 'error', value: '상단에 암호문을 입력하세요.'} as const;
+        }
         try {
             const value = (() => {
                 const value = AesCryptoUtil.decrypt(input, secret);
